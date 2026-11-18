@@ -1,0 +1,50 @@
+
+ticket,category
+"WiFi is not working in my office",Network
+"The internet connection is very slow",Network
+"Unable to access the company network",Network
+"My laptop keeps disconnecting from WiFi",Network
+"Network connectivity is unavailable",Network
+"Internet connection drops frequently",Network
+"Cannot connect to the office router",Network
+"Network speed is extremely slow today",Network
+"VPN is not connecting to the company server",VPN
+"Unable to access the company VPN",VPN
+"My VPN connection keeps disconnecting",VPN
+"VPN connection failed after entering credentials",VPN
+"Company VPN is showing connection timeout",VPN
+"Cannot establish a secure VPN connection",VPN
+"VPN client is not responding",VPN
+"Remote access through VPN is unavailable",VPN
+"I forgot my company account password",Password
+"Please reset my login password",Password
+"My account is locked after multiple attempts",Password
+"Unable to log in because of an incorrect password",Password
+"How can I change my account password",Password
+"Password reset link is not working",Password
+"I cannot access my account credentials",Password
+"My login password has expired",Password
+"Please install Microsoft Office on my laptop",Software
+"Application installation is required",Software
+"Microsoft Teams is not opening",Software
+"Unable to install the required application",Software
+"The software crashes whenever I open it",Software
+"Need help updating the company software",Software
+"Excel application is showing an error",Software
+"Application installation failed on my computer",Software
+"My laptop keyboard is not working",Hardware
+"Monitor display is blank",Hardware
+"Computer mouse is not responding",Hardware
+"Printer is not printing documents",Hardware
+"My laptop battery is not charging",Hardware
+"The desktop computer is making unusual noises",Hardware
+"Keyboard keys are damaged",Hardware
+"External monitor is not detected",Hardware
+"My operating system is crashing repeatedly",System
+"Windows update is failing",System
+"Computer shows a blue screen error",System
+"Operating system is running very slowly",System
+"System keeps restarting unexpectedly",System
+"Unable to boot into Windows",System
+"System files appear to be corrupted",System
+"Computer freezes during startup",System

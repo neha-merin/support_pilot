@@ -1,0 +1,22 @@
+
+ticket,actual_severity
+"Entire production server is down",Critical
+"Security breach detected in company network",Critical
+"All users affected by system outage",Critical
+"Production down for the entire company",Critical
+"System outage affecting all users",Critical
+"VPN not working and I cannot work",High
+"Urgent issue before my client meeting",High
+"Business operations affected and unable to work",High
+"Cannot work because VPN is not working",High
+"Business stopped due to technical issue",High
+"Internet connection is very slow",Medium
+"Application is showing an error",Medium
+"Network problem occurs frequently",Medium
+"System has a technical issue",Medium
+"Computer is frequently disconnecting",Medium
+"I forgot my password",Low
+"Need help installing a new application",Low
+"How can I update my profile settings",Low
+"Requesting software installation assistance",Low
+"Need assistance with account settings",Low

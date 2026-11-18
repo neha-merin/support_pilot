@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SupportPilot | AI Ticket Resolution</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">S</div>
+            <div>
+                <h4>SupportPilot</h4>
+                <small>AI Support System</small>
+            </div>
+        </div>
+
+        <div class="nav-label">WORKSPACE</div>
+
+        <a href="#" class="nav-item active">
+            <span>▦</span> Dashboard
+        </a>
+
+        <a href="#ticket-form" class="nav-item">
+            <span>＋</span> Submit Ticket
+        </a>
+
+        <a href="#ticket-list" class="nav-item">
+            <span>▤</span> All Tickets
+        </a>
+
+        <div class="sidebar-bottom">
+            <div class="system-status">
+                <span class="status-dot"></span>
+                System Operational
+            </div>
+            <small>SupportPilot v1.0</small>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+            <div>
+                <h3>Dashboard Overview</h3>
+                <p>Monitor and manage IT support requests.</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar">SP</div>
+                <div>
+                    <strong>Support Admin</strong>
+                    <small>Administrator</small>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- WELCOME -->
+        <section class="welcome-card">
+            <div>
+                <span class="welcome-tag">AI-POWERED IT SUPPORT</span>
+                <h2>Welcome to SupportPilot</h2>
+                <p>
+                    Intelligent ticket classification,
+                    severity prediction and priority management.
+                </p>
+            </div>
+
+            <div class="welcome-symbol">✦</div>
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon blue">▤</div>
+                <p>Total Tickets</p>
+                <h2 id="totalTickets">0</h2>
+                <small>All submitted requests</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">◷</div>
+                <p>High Priority</p>
+                <h2 id="highPriority">0</h2>
+                <small>P1 and P2 tickets</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">✓</div>
+                <p>Open Tickets</p>
+                <h2 id="openTickets">0</h2>
+                <small>Awaiting resolution</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon purple">✦</div>
+                <p>AI Classified</p>
+                <h2 id="classifiedTickets">0</h2>
+                <small>Processed tickets</small>
+            </div>
+
+        </section>
+
+
+        <!-- TICKET FORM -->
+        <section class="content-card" id="ticket-form">
+
+            <div class="section-heading">
+                <div>
+                    <h4>Submit a Support Ticket</h4>
+                    <p>Describe your IT issue and let AI analyze it.</p>
+                </div>
+
+                <span class="ai-badge">✦ AI Powered</span>
+            </div>
+
+            <form id="ticketForm">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <label class="form-label">Employee Name</label>
+                        <input type="text"
+                               class="form-control"
+                               id="employee_name"
+                               placeholder="Enter your name"
+                               required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Email Address</label>
+                        <input type="email"
+                               class="form-control"
+                               id="email"
+                               placeholder="name@company.com"
+                               required>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Ticket Title</label>
+                        <input type="text"
+                               class="form-control"
+                               id="title"
+                               placeholder="Example: VPN connection issue"
+                               required>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Describe Your Issue</label>
+                        <textarea class="form-control"
+                                  id="description"
+                                  rows="4"
+                                  placeholder="Explain your technical problem..."
+                                  required></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-footer">
+                    <span>✦ Your ticket will be analyzed automatically.</span>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        Analyze & Submit →
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- AI RESULT -->
+        <section class="content-card result-card"
+                 id="resultSection"
+                 style="display:none;">
+
+            <div class="section-heading">
+                <div>
+                    <h4>AI Analysis Results</h4>
+                    <p>Your ticket has been successfully processed.</p>
+                </div>
+                <span class="ai-badge">✦ Analysis Complete</span>
+            </div>
+
+            <div class="result-grid">
+
+                <div class="result-item">
+                    <small>Ticket ID</small>
+                    <h5 id="resultId">-</h5>
+                </div>
+
+                <div class="result-item">
+                    <small>Category</small>
+                    <h5 id="resultCategory">-</h5>
+                </div>
+
+                <div class="result-item">
+                    <small>Severity</small>
+                    <h5 id="resultSeverity">-</h5>
+                </div>
+
+                <div class="result-item">
+                    <small>Business Impact</small>
+                    <h5 id="resultImpact">-</h5>
+                </div>
+
+                <div class="result-item">
+                    <small>Priority</small>
+                    <h5 id="resultPriority">-</h5>
+                </div>
+
+                <div class="result-item">
+                    <small>Status</small>
+                    <h5 id="resultStatus">Open</h5>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TICKET TABLE -->
+        <section class="content-card" id="ticket-list">
+
+            <div class="section-heading">
+                <div>
+                    <h4>Recent Support Tickets</h4>
+                    <p>View all submitted IT support requests.</p>
+                </div>
+
+                <button class="refresh-btn" onclick="loadTickets()">
+                    ↻ Refresh
+                </button>
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table align-middle">
+
+                    <thead>
+                        <tr>
+                            <th>Ticket ID</th>
+                            <th>Employee</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Severity</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="ticketTableBody">
+                        <tr>
+                            <td colspan="7" class="text-center">
+                                Loading tickets...
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <footer>
+            SupportPilot AI Ticket Resolution Agent © 2026
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+    // ==================================
+    // SUBMIT TICKET
+    // ==================================
+
+    document.getElementById("ticketForm")
+        .addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const button = document.getElementById("submitBtn");
+
+        button.disabled = true;
+        button.textContent = "Analyzing...";
+
+        const ticketData = {
+            employee_name: document.getElementById("employee_name").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            title: document.getElementById("title").value.trim(),
+            description: document.getElementById("description").value.trim()
+        };
+
+        try {
+
+            const response = await fetch("/ticket", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(ticketData)
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.error || "Ticket submission failed");
+            }
+
+            // Display AI results
+            document.getElementById("resultId").textContent = result.ticket_id;
+            document.getElementById("resultCategory").textContent = result.category;
+            document.getElementById("resultSeverity").textContent = result.severity;
+            document.getElementById("resultImpact").textContent = result.business_impact;
+            document.getElementById("resultPriority").textContent = result.priority;
+            document.getElementById("resultStatus").textContent = result.status;
+
+            document.getElementById("resultSection").style.display = "block";
+
+            document.getElementById("resultSection")
+                .scrollIntoView({ behavior: "smooth" });
+
+            document.getElementById("ticketForm").reset();
+
+            await loadTickets();
+
+            alert("Ticket submitted successfully!");
+
+        } catch (error) {
+
+            alert(error.message);
+
+        } finally {
+
+            button.disabled = false;
+            button.textContent = "Analyze & Submit →";
+
+        }
+
+    });
+
+
+    // ==================================
+    // LOAD ALL TICKETS
+    // ==================================
+
+    async function loadTickets() {
+
+        const tableBody = document.getElementById("ticketTableBody");
+
+        try {
+
+            const response = await fetch("/tickets");
+
+            if (!response.ok) {
+                throw new Error("Unable to retrieve tickets");
+            }
+
+            const data = await response.json();
+
+            const tickets = data.tickets;
+
+            document.getElementById("totalTickets").textContent =
+                tickets.length;
+
+            document.getElementById("highPriority").textContent =
+                tickets.filter(t => ["P1", "P2"].includes(t.priority)).length;
+
+            document.getElementById("openTickets").textContent =
+                tickets.filter(t => t.status === "Open").length;
+
+            document.getElementById("classifiedTickets").textContent =
+                tickets.filter(t => t.category).length;
+
+            tableBody.innerHTML = "";
+
+            if (tickets.length === 0) {
+
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            No tickets submitted yet.
+                        </td>
+                    </tr>
+                `;
+
+                return;
+            }
+
+            tickets.forEach(ticket => {
+
+                const row = document.createElement("tr");
+
+                const values = [
+                    "#" + ticket.ticket_id,
+                    ticket.employee_name,
+                    ticket.title,
+                    ticket.category,
+                    ticket.severity,
+                    ticket.priority,
+                    ticket.status
+                ];
+
+                values.forEach(value => {
+                    const cell = document.createElement("td");
+                    cell.textContent = value ?? "-";
+                    row.appendChild(cell);
+                });
+
+                tableBody.appendChild(row);
+
+            });
+
+        } catch (error) {
+
+            tableBody.innerHTML = `
+                <tr>
+                    <td colspan="7" class="text-center text-danger">
+                        Unable to load tickets.
+                    </td>
+                </tr>
+            `;
+
+            console.error(error);
+
+        }
+
+    }
+
+
+    // Load tickets when dashboard opens
+    loadTickets();
+
+</script>
+
+</body>
+</html>
