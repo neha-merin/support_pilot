@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SupportPilot – AI Ticket Resolution Agent
 
 **Milestone 1: Ticket Ingestion, AI Classification, Severity Prediction & Priority Assignment**
@@ -211,3 +212,6 @@ Milestone 1 delivers a working end-to-end prototype for ticket submission, autom
 ---
 **Project:** SupportPilot – AI Ticket Resolution Agent  
 **Milestone:** 1  
+=======
+# support_pilot
+>>>>>>> 822a25511259f9721a520d98977b2a05b12c1988
