@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # SupportPilot – AI Ticket Resolution Agent
 
 **Milestone 1: Ticket Ingestion, AI Classification, Severity Prediction & Priority Assignment**
