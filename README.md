@@ -210,8 +210,4 @@ Open **http://127.0.0.1:5000/** in your browser.
 Milestone 1 delivers a working end-to-end prototype for ticket submission, automated category prediction, severity and business-impact assessment, priority assignment, database storage and dashboard display. Severity and priority rule tests passed on the prepared test cases. Category classification currently measures **72.92%**, and improving it to the 90% target is an identified next step.
 
 ---
-**Project:** SupportPilot – AI Ticket Resolution Agent  
-**Milestone:** 1  
-=======
-# support_pilot
->>>>>>> 822a25511259f9721a520d98977b2a05b12c1988
+
