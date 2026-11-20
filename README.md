@@ -130,10 +130,13 @@ The screenshots below document the implementation and Milestone 1 tests.
 ### 9. Classification cross-validation results
 ![Classification cross-validation results](screenshots/09-classification-cross-validation-results.png)
 
-### 10. Severity evaluation results
+### 10. Visualization
+![Charts](screenshots/09-visualization.png)
+
+### 11. Severity evaluation results
 ![Severity evaluation results](screenshots/10-severity-evaluation-results.png)
 
-### 11. Priority rule evaluation results
+### 12. Priority rule evaluation results
 ![Priority rule evaluation results](screenshots/11-priority-rule-evaluation-results.png)
 
 ## Setup and run locally
